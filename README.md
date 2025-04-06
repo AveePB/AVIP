@@ -6,5 +6,3 @@ In normal traffic, pedestrians rely on subtle non-verbal cues like eye contact, 
 AVIP aims to fill that gap.
 
 By clearly displaying what the vehicle “sees” and how it plans to react, AVIP helps pedestrians feel safer and more confident when interacting with AVs. It’s about rebuilding trust through transparency, using simple, intuitive visual cues.
-
-Chyba brzmi dobrze, ale jak coś to pozwalam trochę zmienić
