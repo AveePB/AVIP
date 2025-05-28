@@ -21,7 +21,7 @@ void setup() {
   // Initialize avip
   int ID = avip.readID();
   avip.begin(ID);
-  avip.setRotation(3);
+  avip.setRotation(1);
 
   // Initialize pins
   pinMode(PIN_1, INPUT);
