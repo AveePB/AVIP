@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 FOLDER_ARUCO_PATH = "./assets/aruco-markers"
 ARUCO_TYPE = aruco.DICT_4X4_1000
-MARKER_ID = 133
+MARKER_ID = 144
 MARKER_SIZE = 200
 
 def main():
