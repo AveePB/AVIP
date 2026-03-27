@@ -56,7 +56,7 @@ Camera calibration is the process of estimating the parameters of a camera to co
 - *Tangential distortion* – happens if the lens and sensor are not perfectly parallel. <a href="https://en.wikipedia.org/wiki/Distortion_(optics)">For more check wikipedia</a>
 
 ### Script
-The `chessboard_detection.py` script allows you check if your chessboard images are recognized by opencv's algorithm. When all of your images are okay, you are ready to calibrate your camera by running `camera_calibration.py`. After running the script your camera parameters will be in *assets/calibration-data* folder.
+ When all of your images are okay, you are ready to calibrate your camera by running `camera_calibration.py`. After running the script your camera parameters will be in *assets/calibration-data* folder.
 
 ## Marker Detection & Pose Estimation
 
