@@ -1,39 +1,37 @@
 import cv2
 import cv2.aruco as aruco
+from picamera2 import Picamera2
 
+CAM_RESOLUTION = (640, 480)
 ARUCO_TYPE = aruco.DICT_4X4_1000
 
-def main():
-    # Configure opencv
-    camera = cv2.VideoCapture(0)
-    cv2.namedWindow("ArUco Easy Detection")
-
-    if camera.isOpened():
-        print("Camera is opened!")
-        is_read, frame = camera.read()
-    else:
-        is_read = False
+def main():    
+  # Configure camera
+  picam2 = Picamera2()
+  config = picam2.create_preview_configuration(main={"size": CAM_RESOLUTION})
+  picam2.configure(config)
+  picam2.start()
     
-    # Configure aruco
-    detector = aruco.ArucoDetector(aruco.getPredefinedDictionary(ARUCO_TYPE))
+  # Configure aruco
+  detector = aruco.ArucoDetector(aruco.getPredefinedDictionary(ARUCO_TYPE))
 
-    while is_read:
-        # Show the frame
-        cv2.imshow("ArUco Easy Detection", frame)
-        is_read, frame = camera.read()
+  while True:
+    # Show the frame
+    frame = picam2.capture_array()
+    frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
-        # Detect tags
-        corners, ids, _ = detector.detectMarkers(frame)
-        if len(corners) > 0:
-            aruco.drawDetectedMarkers(frame, corners, ids) 
+    # Detect tags
+    corners, ids, _ = detector.detectMarkers(frame)
+    if len(corners) > 0:
+      aruco.drawDetectedMarkers(frame, corners, ids) 
 
-        # Handle key event
-        key = cv2.waitKey(20)
-        if (key == 27): # Exit on ESC
-            break
+    # Handle key event
+    key = cv2.waitKey(20)
 
-    cv2.destroyAllWindows()
-    camera.release()
+    # Exit on Q
+    if (key == ord("q")): break
+
+    cv2.imshow("ArUco Easy Detection", frame)
 
 if __name__ == "__main__":
     main()

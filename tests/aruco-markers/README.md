@@ -14,7 +14,7 @@ This project uses OpenCV to generate ArUco Marker fiducial markers. These marker
 ### Requirements
 Install OpenCV with the ArUco module:
 ```
-pip install opencv-python opencv-contrib-python
+pip install opencv-python opencv-contrib-python picamera2 matplotlib
 ```
 
 The `opencv-contrib-python` package is required because the ArUco module is part of the OpenCV contrib modules.
