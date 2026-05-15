@@ -1,13 +1,13 @@
 #include <Servo.h>
 
 // ESC settings
-const int ESC_PIN = 6, ESC_FWD = 1575, ESC_STOP = 1495, ESC_BWD = 1125;
+const int ESC_PIN = 6, ESC_FWD = 1580, ESC_STOP = 1495, ESC_BWD = 1125;
 
 // Servo settings
 const int SERVO_PIN = 5, SERVO_N = 1500;
 
 // Timing constants
-const int BAUD_RATE = 115200, DELAY_MS = 1000;
+const int BAUD_RATE = 115200, DELAY_MS = 5000;
 
 // Global variables
 Servo esc, servo;
@@ -34,12 +34,12 @@ void loop() {
   // 2. Braking
   Serial.println("Second step: Braking (backward for one second).");
   esc.writeMicroseconds(ESC_BWD);
-  delay(150);
+  delay(550);
 
   // 3. Stop
   Serial.println("Fifth step: Stop.");
   esc.writeMicroseconds(ESC_STOP);
-  delay(150);
+  delay(550);
 
   Serial.println("======= END OF THE TEST =======");
   delay(DELAY_MS);
